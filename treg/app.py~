@@ -1,0 +1,10 @@
+import json
+from biothings_explorer.smartapi_kg import MetaKG
+
+kg = MetaKG()
+
+kg.constructMetaKG(source="remote")
+
+meta = kg.filter({"input_type": "Gene", "output_type": "ChemicalSubstance"})
+
+print (json.dumps (meta, indent=2))
