@@ -70,18 +70,19 @@ for api in specs: #specs.get("associations", []):
         'x-id': '',
         'x-role': ''
     })
-    set_default  (api, "servers", [
+    set_default (api, "servers", [
         {
             "description": "",
             "url" : ""
         }
     ])
+    set_default (api.info, "x-trapi", { "version" : None })
     #print (f"{api}")
     
-#    print (f"team:{api.info.x_translator.team} component: {api.info.x_translator.component} poc: {api.info.contact.email} name: {api.info.contact.get('name')} version: {api.info.version} url: {api._meta.url} servers: {api.servers}")
     print (f"team:{api.info.x_translator.team}")
     print (f"  component: {api.info.x_translator.component}")
     print (f"  poc      : {api.info.contact.email} name: {api.info.contact.get('name')}")
     print (f"  version  : {api.info.version} ")
     print (f"  url      : {api._meta.url} ")
     print (f"  servers  : {api.servers}")
+    print (f"  trapi    : {api.info.x_trapi.version}")
